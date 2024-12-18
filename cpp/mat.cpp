@@ -2,147 +2,96 @@
 using namespace std;
 
 class Matrix{
-
-    int row;
-    int col;
+    private:
+    int r;
+    int c;
     int **data;
 
     public:
-
-     int i, j, k;
-    
-    Matrix(){
-        row = 3;
-        col = 3;
-
-
-        data = new int*[row];
-
-        for(i=0;i<3;i++){
-            data[i] = new int[col];
-
-            for(j=0;j<3;j++){
-                data[i][j] = 0;
-            }
-        };
-
-    }
-
-    Matrix(int r, int c){
-        row =r;
-        col = c;
-
+    Matrix(int rows, int cols) {
+        r=rows;
+        c=cols;
         data = new int*[r];
-
-        for(i=0;i<r;i++){
+        for(int i = 0; i < r; i++) {
             data[i] = new int[c];
-
-            for(j=0;j<c;j++){
+            for(int j = 0; j < c; j++) {
                 data[i][j] = 0;
             }
-        };
+        }
     }
 
-    void setValue(int x, int y, int z){
 
-        data[x][y] = z;
+
+    void Setvalue(int r, int c, int value){
+        data[r][c]=value;
+
     }
 
-    Matrix operator*(Matrix const& o) const{
+     void print(){
+        for(int i=0; i<r; i++){
+            for(int j=0; j<c; j++){
+                cout<<data[i][j]<<" ";
+            }
+            cout<<endl;
+        }
+    }
 
-        int i, j, k;
-
-        if(row!=o.col){
-            cout<<"Invalid dimensions";
-            return Matrix(0,0);
+    Matrix operator*(Matrix const &other){
+        if (c!=other.r){
+            cout<<"Matrix multiplication not possible"<<endl;
+            exit(1);
         }
 
         else{
 
-        Matrix result(row, o.col);
-        
-        for(i=0;i<row;i++){
+            Matrix res(r, other.c);
 
-            for(j=0;j<o.col;j++){
-
-                result.data[i][j] = 0;
-
-                for(k=0;k<col;k++){
-
-                    result.data[i][j] = data[i][k]*o.data[k][j] + result.data[i][j];
+            for (int i=0; i<r; i++){
+                for (int j=0; j<other.c; j++){
+                    res.data[i][j]=0;
+                    for (int k=0; k<c; k++){
+                        res.data[i][j]=res.data[i][j]+ data[i][k]*other.data[k][j];
+                    }
                 }
-
             }
-        }
-
-            return result;
-        
-        }
-
+            return res;
+        }    
+    
     }
-
-    void display(){
-
-        for(i=0;i<row;i++){
-        for(j=0;j<col;j++){
-
-            cout<<data[i][j]<<"  ";
-        }
-        cout<<endl;
-        }
-    }
-
+       
 
 };
 
-int main(){
-    int r, c, x, i, j;
+int main() {
+    Matrix m1(3, 2);
+    Matrix m2(2, 3);
 
-    cout<<"For matrix 1: "<<endl;
-    cout<<"Enter total no. of rows: ";
-    cin>>r;
-    cout<<"Enter total no. of columns: ";
-    cin>>c;
+    m1.Setvalue(0, 0, 1);
+    m1.Setvalue(0, 1, 3);
+    m1.Setvalue(1, 0, 0);
+    m1.Setvalue(1, 1, 2);
+    m1.Setvalue(2, 0, 3);
+    m1.Setvalue(2, 1, 4);
 
-    Matrix m2(r,c);
+    cout << "Matrix m1:" << endl;
+    m1.print();
+    cout << "\n";
 
-    for(i=0;i<r;i++){
-        for(j=0;j<c;j++){
+    m2.Setvalue(0, 0, 2);
+    m2.Setvalue(0, 1, 1);
+    m2.Setvalue(0, 2, 3);
+    m2.Setvalue(1, 0, 4);
+    m2.Setvalue(1, 1, 1);
+    m2.Setvalue(1, 2, 2);
 
-            cout<<"Value for ["<<i<<"]["<<j<<"]";
-            cin>>x;
-            m2.setValue(i,j,x);
+    cout << "Matrix m2:" << endl;
+    m2.print();
+    cout << "\n";
 
-        }
-    }
+    Matrix m3 = m1 * m2;
 
-    m2.display();
+    cout << "Matrix m3 (result of m1 * m2):" << endl;
+    m3.print();
 
-    cout<<"For matrix 2: "<<endl;
-    cout<<"Enter total no. of rows: ";
-    cin>>r;
-    cout<<"Enter total no. of columns: ";
-    cin>>c;
-
-    Matrix m3(r,c);
-
-    for(i=0;i<r;i++){
-        for(j=0;j<c;j++){
-
-            cout<<"Value for ["<<i<<"]["<<j<<"]";
-            cin>>x;
-            m3.setValue(i,j,x);
-
-        }
-    }
-
-    m3.display();
-
-    Matrix m4 = m2*m3;
-    m4.display();
+    return 0;
 }
-
-
-
-
-
