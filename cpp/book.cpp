@@ -2,93 +2,129 @@
 #include <string>
 using namespace std;
 
-class book {
-private:
-    string aname;
-    string edition;
-    string bname;
-    string yop;
-    string genre;
-    int isbn;
+class Book {
+
+    private:
+    string name;
+    int yop;
+    string author;
     float price;
-    
-      //these are the private keys in the class book
-      
-        int visbn(int isbn){
-        int x=isbn, rem, i, sum=0;
-        
-        while(x>0){
-            rem =x%10;
-            sum+=(rem*i);
-            i++;
+    long isbn;
+
+    int visbn(long isbn){
+        long x = isbn;
+        int i, sum=0, rem;
+
+        for(i=1;i<=10;i++){
+            rem = x%10;
+            sum = sum + rem * i;
             x = x/10;
-        }     
-        
-        if(sum%11==0){
+        }
+
+        if(sum%11 == 0){
             return 0;
         }
+
+        else {
+            return 1;
+        }
+
+    }
+
+    public:
+
+    //default constructor
+    Book(){
+        name = "blank";
+        yop = 0;
+        author = "blank";
+        price = 0.0;
+        isbn = 0;
+    }
+
+    //parametrised constructor
+    Book(string a, int b, string c, float d, int e){
         
-        else return -1;
-        
+        if (visbn(e) == 1){
+
+            cout<<"Invalid ISBN. No details stored.";
+
+        }
+
+        else {
+            
+        name = a;
+        yop = b;
+        author = c;
+        price = d;
+        isbn = e;
+
+        }
+    }
+
+    float calculatePrice() {
+        return price;
+    }
+
+    float calculatePrice(int x){
+        price = price - (x/100.0)*price;
+        return price;
     }
 
 
-public:
-    book(string a, string e, string b, string y, string g, int i, float p) {
-        if(visbn(i)== 0)
-        {
-        aname = a;
-        bname = b;
-        edition = e;
-        yop = y;
-        genre = g;
-        isbn = i;
-        price =p;
-        }
-        
-        else{
-            printf("Invalid ISBN. No details stored. \n");
-        }
-        
+    void print(){
+        cout<<"The book name is: "<<name<<endl;
+        cout<<"The year of publication: "<<yop<<endl;
+        cout<<"The author of the book is: "<<author<<endl;
+        cout<<"The book price is: "<<price<<endl;
+        cout<<"The isbn is: "<<isbn;
+
     }
 
-    void dbook() {
-        cout << "Author name: " << aname << endl;
-        cout << "Book name: " << bname << endl;
-        cout << "Edition: " << edition << endl;
-        cout << "Genre: " << genre << endl;
-        cout << "Year of Publication: " << yop << endl;
-        cout << "ISBN code: " << isbn << endl;
-        cout << "Book Price: " << price << endl;
-        
-    }//displays book details
-    
+    ~Book(){
+        cout<<"Object has been deleted";
+    }
 
 };
 
-int main() {
-    float price;
-    int isbn;
-    string aname, bname, edition, genre, yop;
+int main(){
 
-    cout << "Enter author name: ";
-    cin >> aname;
-    cout << "Enter book name: ";
-    cin >> bname;
-    cout << "Enter book edition: ";
-    cin >> edition;
-    cout << "Enter book genre: ";
-    cin >> genre;
-    cout << "Enter ISBN code of book: ";
-    cin >> isbn;
-    cout << "Enter year of publication: ";
-    cin >> yop;
-    cout << "Enter price of book: ";
-    cin >> price;
+    string n, auth;
+    int year, disc;
+    long is;
+    float price;
+
+    cout<<"Enter the book name: ";
+    cin>>n;
+    cout<<"Enter the year of publication: ";
+    cin>>year;
+    cout<<"Enter the author name: ";
+    cin>>auth;
+    cout<<"Enter the price of the book: ";
+    cin>>price;
+    cout<<"Enter the isbn of the book: ";
+    cin>>is;
+
+
+    Book obj1;
+    obj1.print();
+    cout<<endl;
+
+    Book obj2(n, year, auth, price, is);
+    obj2.calculatePrice();
+    obj2.print();
+    cout<<endl;
+
+    cout<<"Enter the discount: ";
+    cin>>disc;
+
+    Book obj3("Marigold", 2020, "James", 500.0, 04);
+    obj3.calculatePrice(disc);
+    obj3.print();
+
     
-    printf("\n");
-    
-        book b(aname, edition, bname, yop, genre, isbn, price);
-        b.dbook();
-        return 0;
+
+    return 0;
+
+
 }
