@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Calc</title>
+
+    <style>
+        body {
+        background: linear-gradient(to right,rgb(247, 75, 75), rgb(237, 100, 45));
+        background-size: cover;    
+        background-attachment: fixed;
+
+        color: white;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    </style>
+
+</head>
+<body>
+
+    <h2 style="font-family: 'consolas';">String Calculator</h2>
+
+    <form>
+        <label for="string"><b>Enter a string</b></label>
+        <input type="text" id="string" placeholder="welcome home"><br><br>
+
+        <br><button type="button" onclick="find()">Find</button><br><br>
+
+        <label for="smallest"><b>Shortest string is </b></label>
+        <input type="text" id="smallest" placeholder="home" readonly><br><br>
+        <label for="largest"><b>Largest string is </b></label>
+        <input type="text" id="largest" placeholder="welcome" readonly><br><br>
+
+
+    </form>
+
+
+    <script>
+        function find() {
+            let string = document.getElementById("string").value.trim(); //used to remove extra spaces added unintentionally at the end and beginning of input
+
+            let words = string.split(/\s+/); // Split by whitespace
+            let smallest = words[0];
+            let largest = words[0];
+
+            for (let word of words) {
+                if (word.length < smallest.length) {
+                    smallest = word;
+                }
+                if (word.length > largest.length) {
+                    largest = word;
+                }
+            }
+
+            document.getElementById("smallest").value = smallest;
+            document.getElementById("largest").value = largest;
+        }
+
+
+    </script>
+</body>
+</html>

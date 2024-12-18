@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form name="registrationForm" onsubmit="return validateForm()">
+        User id: <input type="text" name="userid"><br><br>
+        Password: <input type="password" name="password"><br><br>
+        Name: <input type="text" name="name"><br><br>
+        Address: <input type="text" name="address"><br><br>
+        Country: 
+        <select name="country">
+            <option value="Default">(Please select a country)</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+        </select><br><br>
+        ZIP Code: <input type="text" name="zip"><br><br>
+        Email: <input type="email" name="email"><br><br>
+        Sex: 
+        <input type="radio" name="sex" value="Male"> Male 
+        <input type="radio" name="sex" value="Female"> Female <br><br>
+        Language:
+        <input type="checkbox" name="language" value="English"> English
+        <input type="checkbox" name="language" value="NonEnglish"> Non English <br><br>
+        About: <textarea name="about"></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <script>
+        function validateForm() {
+            var userId = document.forms["registrationForm"]["userid"].value;
+            var password = document.forms["registrationForm"]["password"].value;
+            var name = document.forms["registrationForm"]["name"].value;
+            var country = document.forms["registrationForm"]["country"].value;
+            var zip = document.forms["registrationForm"]["zip"].value;
+            var email = document.forms["registrationForm"]["email"].value;
+            var sex = document.forms["registrationForm"]["sex"].value;
+            var languageChecked = document.forms["registrationForm"]["language"].checked;
+
+            // User ID validation (5-12 characters)
+            if (userId == "" || userId.length < 5 || userId.length > 12) {
+                alert("User ID is required and must be between 5 and 12 characters.");
+                return false;
+            }
+
+            // Password validation (7-12 characters)
+            if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,12}$/.test(password)) {
+    alert("Password must be between 7 and 12 characters and include at least one uppercase letter, one lowercase letter, one digit, and one special character.");
+    return false;
+}
+
+            // Name validation (alphabets only)
+            var namePattern = /^[A-Za-z]+$/;
+            if (name == "" || !namePattern.test(name)) {
+                alert("Name is required and must contain alphabets only.");
+                return false;
+            }
+
+            // Country validation
+            if (country == "Default") {
+                alert("Please select a country.");
+                return false;
+            }
+
+            // ZIP Code validation (numeric only)
+            var zipPattern = /^[0-9]+$/;
+            if (zip == "" || !zipPattern.test(zip)) {
+                alert("ZIP Code is required and must contain numeric values only.");
+                return false;
+            }
+
+
+            // Sex validation
+            if (!document.forms["registrationForm"]["sex"][0].checked && !document.forms["registrationForm"]["sex"][1].checked) {
+                alert("Please select a gender.");
+                return false;
+            }
+
+            // If all validations pass
+            return true;
+        }
+    </script>
+</body>
+</html>

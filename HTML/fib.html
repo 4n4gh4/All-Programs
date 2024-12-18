@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <label for = "num1">Enter the number: </label>
+        <input type="number" id="num1">
+
+        <button onclick="fibo()">Print series</button>
+
+        <p>Result: </p>
+        <p id="result"> </p>
+
+        <script>
+            
+
+            function fibo(a,b){
+
+                var n = document.getElementById("num1").value;
+                var resultstr = "";
+                var a  = 0, b=1;
+    
+
+                for(var i = 0; i  < n; i++){
+
+                    resultstr = resultstr + a + (i < n-1 ? ",  " : "");
+                    var next = a + b;
+                    a = b;
+                    b = next;
+
+                }
+
+                document.getElementById('result').innerHTML = resultstr;
+
+            }
+        
+        </script>
+
+
+    </body>
+</html>

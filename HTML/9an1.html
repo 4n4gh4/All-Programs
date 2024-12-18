@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        /* Valid input style */
+        input:valid, textarea:valid, select:valid {
+            border: 2px solid green;
+        }
+
+        /* Invalid input style */
+        input:invalid, textarea:invalid, select:invalid {
+            border: 2px solid red;
+        }
+
+        /* Out-of-range style for number fields */
+        input[type="number"]:out-of-range {
+            border: 2px solid orange;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<form>
+    <!-- First Name -->
+    <label for="firstName">First name:</label>
+    <input type="text" id="firstName" name="firstName" minlength="3" maxlength="10" required>
+
+    <!-- Last Name -->
+    <label for="lastName">Last name:</label>
+    <input type="text" id="lastName" name="lastName" minlength="3" maxlength="10" required>
+
+    <!-- Phone -->
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" pattern="\d{10}" title="Phone number should be exactly 10 digits" required>
+
+    <!-- Gender -->
+    <label>Gender:</label>
+    <input type="radio" id="male" name="gender" value="male" required>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female" required>
+    <label for="female">Female</label>
+
+    <!-- Age -->
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="18" max="21" required>
+
+    <!-- Address -->
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" maxlength="30"></textarea>
+
+    <!-- City -->
+    <label for="city">City:</label>
+    <select id="city" name="city" required>
+        <option value="">Select a city</option>
+        <option value="city1">City 1</option>
+        <option value="city2">City 2</option>
+        <option value="city3">City 3</option>
+        <option value="city4">City 4</option>
+        <option value="city5">City 5</option>
+        <option value="city6">City 6</option>
+        <option value="city7">City 7</option>
+        <option value="city8">City 8</option>
+        <option value="city9">City 9</option>
+        <option value="city10">City 10</option>
+    </select>
+
+    <!-- Preferred Username -->
+    <label for="username">Preferred username:</label>
+    <input type="text" id="username" name="username" pattern="^[a-zA-Z0-9]{5,8}$" title="Username should be 5-8 characters and contain both letters and numbers" required>
+
+    <!-- Password -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" pattern="(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,11}" title="Password must be 6-11 characters, with at least one uppercase letter, one number, and one symbol" required>
+
+    <!-- Submit Button -->
+    <input type="submit" class="submit-btn">
+</form>
+
+</body>
+</html>

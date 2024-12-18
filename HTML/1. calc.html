@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body{
+            background:yellowgreen;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Calculator</h2>
+
+<input type="number" id="num1" placeholder="Enter first number"><br><br>
+<input type="number" id="num2" placeholder="Enter second number">
+<br><br>
+
+<label>Choose the operation</label><br>
+<input type="radio" name="op" value="1" id="add">
+<label for="add">+ (addition)</label><br>
+<input type="radio" name="op" value="2" id="subtract">
+<label for="subtract">- (subtraction)</label><br>
+<input type="radio" name="op" value="3" id="multiply">
+<label for="multiply">* (multiplication)</label><br>
+<input type="radio" name="op" value="4" id="divide">
+<label for="divide">/ (division)</label><br><br>
+
+<button onclick="calc()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+    function calc() {
+        // Get the input numbers
+        let x = parseFloat(document.getElementById("num1").value);
+        let y = parseFloat(document.getElementById("num2").value);
+
+        // Convert the inputs to numbers before performing any operations
+
+
+        // Get the selected operation
+        let operation = document.querySelector('input[name="op"]:checked').value;
+
+        // Perform the operation
+        let result;
+        if (operation === "1") {
+            result = x + y;
+        } else if (operation === "2") {
+            result = x - y;
+        } else if (operation === "3") {
+            result = x * y;
+        } else if (operation === "4") {
+            if (y !== 0) {
+                result = x / y;
+            } else {
+                result = "Cannot divide by zero";
+            }
+        } else {
+            result = "Invalid operation";
+        }
+
+        // Display the result
+        document.getElementById("result").innerHTML = "Result: " + result;
+    }
+</script>
+
+</body>
+</html>

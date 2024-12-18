@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        .col-md-6 {
+            width: 50%;
+            flex-grow: 1; 
+        }
+
+        .col-md-7 {
+            width: 100%;
+        }
+
+        .box {
+            height: 100%;
+            width: 100%;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1; 
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        @media (max-width: 768px) {
+            .col-md-6 {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="box red"></div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="box blue"></div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="box green"></div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="box red"></div>
+        </div>
+        <div class="col-12 col-md-7">
+            <div class="box yellow"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

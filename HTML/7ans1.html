@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .color-box{
+      width: 200px;
+      height: 200px;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="color-box" onmouseover="changeColor1(this)" onmouseout="resetColor(this)">
+</div>
+<div class="color-box" onmouseover="changeColor2(this)" onmouseout="resetColor(this)"></div>
+
+<div class="color-box" onmouseover="changeColor3(this)" onmouseout="resetColor(this)"></div>
+
+
+<script>
+function changeColor1(element) {
+  element.style.backgroundColor = 'purple';
+}
+
+function changeColor2(element) {
+  element.style.backgroundColor = 'lightblue';
+}
+
+function changeColor3(element) {
+  element.style.backgroundColor = 'yellowgreen';
+}
+
+function resetColor(element) {
+  element.style.backgroundColor = 'white';
+}
+
+
+</script>
+
+</body>
+</html>

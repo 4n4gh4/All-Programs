@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number to Digit Array Converter</title>
+    <style>
+        body {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Convert Number to Digit Array</h2>
+
+<h3>Enter a number:</h3>
+<input type="number" id="numberInput"><br><br>
+
+<button onclick="convertToDigits()">Convert</button>
+
+<p id="result"></p>
+
+<script>
+    function convertToDigits() {
+        let number = document.getElementById("numberInput").value;
+        
+        if (number === "") {
+            document.getElementById("result").innerHTML = "Please enter a valid number!";
+            return;
+        }
+        
+        // Convert the number to an array of digits
+        let digitArray = number.split('').map(digit => parseInt(digit));
+
+        document.getElementById("result").innerHTML = "Digit Array: [" + digitArray.join(', ') + "]";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            color: darkgreen;
+            background-color: yellowgreen;
+            line-height: 1.5;
+            
+        }
+
+        fieldset {
+            border: 2px double whitesmoke;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: rgb(186, 236, 142);
+            margin-bottom: 5px; 
+        }
+
+        label{
+            padding-left: 10px; 
+            margin-right: 60px;
+            margin-bottom: 5px;
+        }
+       
+        .form-container input::placeholder {
+            font-style: italic;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            
+        }
+
+        textarea {
+            width: 300px;
+            height: 150px; 
+            padding: 10px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+
+        background-color: #395d1f;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+    }
+
+       
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+    <form>
+
+        <h3>Step 1: Your Details</h3>
+
+        <fieldset>
+        <label for="name">Name  </label>
+        <input type="text" id="name" name="name" placeholder="First and last name">
+        </fieldset>
+        <fieldset>
+        <label for="email">Email    </label>
+        <input type="email" id="email" name="email" placeholder="example@domain.com">
+        </fieldset>
+        <fieldset>
+            <label for="country-code">Country code </label>
+            <input list="country-codes" id="country-code" name="country-code" placeholder="Select or type a country code...">
+            
+            <datalist id="country-codes">
+              <option value="+1">United States</option>
+              <option value="+44">United Kingdom</option>
+              <option value="+91">India</option>
+              <option value="+61">Australia</option>
+              <option value="+81">Japan</option>
+              <option value="+49">Germany</option>
+              <option value="+33">France</option>
+              <option value="+39">Italy</option>
+              <option value="+86">China</option>
+              <option value="+7">Russia</option>
+              <option value="+55">Brazil</option>
+              <option value="+27">South Africa</option>
+              <option value="+34">Spain</option>
+              <option value="+52">Mexico</option>
+              <option value="+82">South Korea</option>
+              <option value="+31">Netherlands</option>
+              <option value="+46">Sweden</option>
+              <option value="+47">Norway</option>
+              <option value="+41">Switzerland</option>
+              <option value="+64">New Zealand</option>
+            </datalist>
+        </fieldset>
+
+        <fieldset>
+        <label for="ph">Phone   </label>
+        <input type="tel" id="ph" name="ph" placeholder="Eg. 5000000000">
+        </fieldset>
+
+    <h3>Step 2: Delivery Address</h3>
+
+        <fieldset>
+        <label>Address   </label>
+        <textarea></textarea>
+    
+        </fieldset>
+        <fieldset>
+        <label for="pc">Post code    </label>
+        <input type="text" id="pc" name="pc">
+        </fieldset>
+        <fieldset>
+        <label for="country">Country   </label>
+        <input type="search" id="country" name="country">
+        </fieldset>
+
+
+    <h3>Step 3: Card Details</h3>
+
+        <fieldset>
+        <label for="name">Card Type  </label> <br>
+        <input type="radio" id="VISA" name="VISA">
+        <img src="https://imgs.search.brave.com/BuXPSEMYBgAKhQx8dBemiazfB-9dH4nxtlcEnjLaOYY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sb2dv/d2lrLmNvbS9jb250/ZW50L3VwbG9hZHMv/aW1hZ2VzLzg1N192/aXNhLmpwZw" height="20" width="40">
+        <label for="VISA">VISA</label>
+        <input type="radio" id="amex" name="amex">
+        <img src="https://imgs.search.brave.com/STRThTS2w-lZ1gs5gBkudGiV-mwmDGNfpChINdftTgg/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nbWFydC5jb20v/ZmlsZXMvNS9BbWVy/aWNhbi1FeHByZXNz/LVBORy1UcmFuc3Bh/cmVudC1JbWFnZS5w/bmc" height="40" width="40">
+        <label for="amex">AmEx</label>
+        <input type="radio" id="mc" name="mc">
+        <img src="https://imgs.search.brave.com/UkvI8yZX8n10xhbYG4ag83QySooILyRjeFzho5Hxu0Q/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbmti/b3RkZXNpZ24uY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIw/LzAyL01hc3RlcmNh/cmQtbG9nby4wLTEw/MjR4NjgzLmpwZw" height="20" width="40">
+        <label for="mc">Mastercard</label>
+        </fieldset>
+        <fieldset>
+        <label for="cn">Card number    </label>
+        <input type="number" id="cn" name="cn">
+        </fieldset>
+        <fieldset>
+        <label for="sc">Security code   </label>
+        <input type="text" id="sc" name="sc">
+        </fieldset>
+        <fieldset>
+        <label for="sc">Security code </label>
+        <input type="text" id="sc" name="sc" placeholder="Exact name as on the card">
+        </fieldset>
+
+        <fieldset>
+            <label for="fav">Rate our service </label>
+            <input type="range" id="fav" name="fav" min="Poor" max="Good" value="Moderate">
+            </fieldset>
+
+        <div style="text-align: center; margin-top: 20px;">
+        <input type="submit" value="BUY IT!">
+        </div>
+
+
+
+
+
+    </form>
+</div>
+
+</body>

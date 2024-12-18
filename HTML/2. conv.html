@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Converter</title>
+
+    <style>
+        body{
+            background: linear-gradient(to right, rgb(215, 125, 125), rgb(189, 51, 51));
+        }
+    </style>
+
+</head>
+<body>
+
+    <h2>Currency Converter</h2>
+
+    <form>
+        <label for="num"><b>Convert</b></label>
+        <input type="number" id="num" placeholder="Enter amount"><br><br>
+
+        <label for="from"><b>From</b></label>
+        <select id="from">
+            <option value="1" selected>Indian Rupee</option>
+            <option value="2">US Dollar</option>
+        </select>    
+
+        <br><br>
+
+        <label for="to"><b>To</b></label>
+        <select id="to">
+            <option value="1" selected>Indian Rupee</option>
+            <option value="2">US Dollar</option>
+        </select>
+
+    </form>
+
+    <br><button onclick="convert()">Convert</button><br><br>
+
+    <p id="result"></p>
+
+    <script>
+    function convert() {
+        let x = document.getElementById("num").value;
+        x = parseFloat(x);
+
+        // Get the 'from' and 'to' currency values
+        let from = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+
+        // Perform the conversion
+        let result;
+        if (from === "1") {
+            if(to === "2"){
+                result = x * 0.012;
+            }
+
+            else{
+                result = x;
+            }
+
+        }
+        
+        else if (from === "2") {
+            if(to === "1"){
+                result = x * 83.68;
+            }
+
+            else{
+                result = x;
+            }
+
+        }
+        
+        else {
+            result = "Invalid";
+        }
+
+        // Display the result
+        document.getElementById("result").innerHTML = "Result: " + result;
+    }
+</script>
+
+</body>
+</html>
+
+        

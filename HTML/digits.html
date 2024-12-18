@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input type = "number" id = "num">
+        <label for="num">Enter the number: </label>
+
+        <button onclick="calculate()">Print series: </button>
+
+        <p id = "result"> </p>
+
+        <script>
+            function calculate() {
+                var num = parseInt(document.getElementById("num").value);
+                var result ="";
+
+                var x = num;
+                
+                while (x !== 0){
+                    var rem = x%10;
+                    result = result + " " +rem;
+
+                    x = Math.floor(x/10);
+                }
+
+                document.getElementById("result").innerHTML = result;
+
+            }
+
+        </script>
+    </body>
+</html>

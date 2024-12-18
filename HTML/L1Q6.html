@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>List Example</title>
+        <style>
+            .styled-list {
+                border: 3px solid plum;
+                background-color: bisque;
+                border-radius: 15px;
+                width: 200px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <ul>
+            <li>
+                <h1>Frontend</h1>
+                <ul type="circle">
+                    <li>HTML</li>
+                    <li>CSS
+                        <ul type="square">
+                            <li>onsubmit Attribute</li>
+                            <li>onclick Attribute</li>
+                        </ul>
+                    </li>
+                    <li>JavaScript</li>
+                </ul>
+            </li>
+            <li>
+                <h1>Library/Framework</h1>
+                <ul type="circle">
+                    <li>
+                        ReactJS
+                        <ul type="square">
+                            <li>Hoisting</li>
+                            <li>Props</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>2ND LIST</p>
+
+        <ol class="styled-list">
+            <li>Car</li>
+            <li>Bike
+                <ul type="disc">
+                    <li>Electric bike</li>
+                    <li>Super bike</li>
+                    <li>Bike</li>
+                </ul>
+            </li>
+            <li>Plane
+                <ul type="disc">
+                    <li>Fighter plane</li>
+                    <li>Commercial plane</li>
+                    <li>Private plane</li>
+                </ul>
+            </li>
+            <li>Helicopter</li>
+        </ol>
+    </body>
+</html>

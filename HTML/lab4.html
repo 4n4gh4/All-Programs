@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .gallery {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .thumbnails img {
+            width: 100px;
+            height: 100px;
+            margin: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease, border 0.2s ease;
+            opacity: 0.9;
+            border: 2px solid transparent;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .thumbnails img:hover {
+            transform: scale(1.1);
+            opacity: 1;
+            border: 2px solid #007BFF;
+        }
+        .thumbnails img:visited {
+            border: 2px solid #28a745;
+        }
+        .thumbnails img:active {
+            border: 2px solid #dc3545;
+        }
+        .banner {
+            margin-top: 20px;
+        }
+        .banner img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            opacity: 0.8;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <h1>PHOTO GALLERY</h1>
+        <p>Click on the thumbnails below to make the image larger.</p>
+        <div class="thumbnails">
+            <img src="https://i.pinimg.com/736x/91/f7/83/91f783eaa237bd9783c1c692194cbe91.jpg" alt="Image 1">
+            <img src="https://i.pinimg.com/736x/27/cc/db/27ccdb92bd13133fcc5fe1e3dbf1056b.jpg" alt="Image 2">
+            <img src="https://i.pinimg.com/236x/d8/72/9f/d8729fb58714ff10addd1b50b905d4bf.jpg" alt="Image 3">
+            <img src="https://imgs.search.brave.com/qTdsvbQk_1zi9ZewpOnukJfwsN6JUv95IRoyAUY8duc/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2YxL2Vl/Lzk3L2YxZWU5N2Zl/MzcxMDZlNjRhNTYy/NDBkZmY1YjJiNjQ0/LmpwZw" alt="Image 4">
+
+        </div>
+        <div class="thumbnails">
+            <img src="https://i.pinimg.com/564x/8a/ae/99/8aae99462581d93d7e24f450d1e7447e.jpg" alt="Image 5">
+            <img src="https://i.pinimg.com/564x/0a/24/f7/0a24f7df4c815efad53982b179640c14.jpg" alt="Image 6">
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROdfX_C-lSe4WwVIShjT3HBBfp4nWmETEbZLAJdyFFIHEMQG0o" alt="Image 7">
+            <img src="https://imgs.search.brave.com/vWhIEHesKRLruUgBqkDaIG7KmkZimY1z0nAC-egIOJA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2I1L2Nl/L2UwL2I1Y2VlMDY2/ODFiNmJlYjFiMjBh/NWJjZDkyNGM4MDBj/LmpwZw" alt="Image 8">
+
+        </div>
+        <div class="banner">
+            <img src="https://imgs.search.brave.com/xgFe9k07Ate41eLdkyX-G2UZ68fuqsQbAHUr7_whf9c/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA0LzUzLzkyLzA0/LzM2MF9GXzQ1Mzky/MDQ0OF95TWNmZjRF/OGN0ZFhRUWVnZGFR/N1djWG5ITTN5M2FN/TS5qcGc" alt="Banner Image">
+        </div>
+    </div>
+</body>
+</html>
