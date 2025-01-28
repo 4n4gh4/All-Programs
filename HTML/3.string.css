@@ -1,0 +1,8 @@
+body {
+        background: linear-gradient(to right,rgb(247, 75, 75), rgb(237, 100, 45));
+        background-size: cover;    
+        background-attachment: fixed;
+
+        color: white;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }

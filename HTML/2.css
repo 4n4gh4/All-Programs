@@ -1,0 +1,9 @@
+table, tr, td, th{
+                border: 2px solid tan;
+                border-collapse: collapses;
+            }
+
+            tr:nth-child(even)
+            {
+                background-color: blueviolet;
+            }
