@@ -3,16 +3,7 @@
 <head>
     <title>String Calc</title>
 
-    <style>
-        body {
-        background: linear-gradient(to right,rgb(247, 75, 75), rgb(237, 100, 45));
-        background-size: cover;    
-        background-attachment: fixed;
-
-        color: white;
-        font-family: 'Comic Sans MS', cursive, sans-serif;
-    }
-    </style>
+   <link rel="stylesheet" href="3.string.css">
 
 </head>
 <body>
@@ -34,28 +25,6 @@
     </form>
 
 
-    <script>
-        function find() {
-            let string = document.getElementById("string").value.trim(); //used to remove extra spaces added unintentionally at the end and beginning of input
-
-            let words = string.split(/\s+/); // Split by whitespace
-            let smallest = words[0];
-            let largest = words[0];
-
-            for (let word of words) {
-                if (word.length < smallest.length) {
-                    smallest = word;
-                }
-                if (word.length > largest.length) {
-                    largest = word;
-                }
-            }
-
-            document.getElementById("smallest").value = smallest;
-            document.getElementById("largest").value = largest;
-        }
-
-
-    </script>
+    <script src="3.string.js"></script>
 </body>
 </html>
